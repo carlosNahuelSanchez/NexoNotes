@@ -16,8 +16,9 @@
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Google Gemini](https://img.shields.io/badge/Google_Gemini-8E7CC3?style=flat-square&logo=google&logoColor=white)](https://ai.google.dev/)
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Donate-FFDD00?style=flat-square&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/carlosNahuelSanchez)
 
-[Overview](#overview) • [Architecture](#architecture) • [Ports](#ports) • [Quick Start](#quick-start) • [CLI Commands](#cli-commands) • [MCP Integration](#mcp-integration) • [User Guide](#user-guide) • [API](#api-reference)
+[Overview](#overview) • [Architecture](#architecture) • [Ports](#ports) • [Quick Start](#quick-start) • [CLI Commands](#cli-commands) • [MCP Integration](#mcp-integration) • [User Guide](#user-guide) • [Webhooks](#5-webhook-automation) • [API](#api-reference) • [Support](#support-the-project)
 
 </div>
 
@@ -194,6 +195,16 @@ For any other MCP-compatible client:
 - Access via the bar chart icon in the header (or `F3`).
 - Displays total notes, folders, tags, vector embedding coverage, database latency, and recent activity.
 
+### 5. Webhook Automation
+NexoNotes includes an **asynchronous, non-blocking webhook dispatcher** to integrate system events with external automation workflows (such as **n8n**, **Make**, **Zapier**, Discord/Slack bots, or custom microservices):
+- **Configuration:** Set your destination URL in the `WEBHOOK_URL` variable inside your `.env` file (e.g. `WEBHOOK_URL=https://your-server.com/webhook`).
+- **Dispatched Events (HTTP POST with JSON payload):**
+  - `note.created`: Dispatched when a new note is created and indexed (`{ "id": int, "title": str }`).
+  - `note.updated`: Dispatched when a note's title or content is modified (`{ "id": int, "title": str }`).
+  - `note.deleted`: Dispatched when a note is removed (`{ "id": int, "title": str }`).
+  - `folder.deleted`: Dispatched when a folder and all its child notes are removed (`{ "folder": str, "notes_deleted": int }`).
+- **Non-blocking Execution:** The backend fires each event in a background thread with an ISO 8601 UTC timestamp, ensuring zero latency impact on user operations or the UI.
+
 ---
 
 ## API Reference
@@ -256,6 +267,20 @@ NexoNotes/
     ├── setup-mcp.bat     # Windows launcher
     └── setup-mcp.sh      # Unix launcher
 ```
+
+---
+
+## Support the Project
+
+If you find NexoNotes useful and want to support its ongoing development and maintenance, feel free to buy me a coffee!
+
+<div align="center">
+
+<a href="https://www.buymeacoffee.com/carlosNahuelSanchez" target="_blank"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=carlosNahuelSanchez&button_colour=000000&font_colour=ffffff&font_family=Lato&outline_colour=ffffff&coffee_colour=FFDD00" alt="Buy Me A Coffee" /></a>
+
+<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="carlosNahuelSanchez" data-color="#000000" data-emoji="☕"  data-font="Lato" data-text="Buy me a coffee" data-outline-color="#ffffff" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
+
+</div>
 
 ---
 

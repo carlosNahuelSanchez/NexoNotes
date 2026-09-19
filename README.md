@@ -16,8 +16,9 @@
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Google Gemini](https://img.shields.io/badge/Google_Gemini-8E7CC3?style=flat-square&logo=google&logoColor=white)](https://ai.google.dev/)
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Donate-FFDD00?style=flat-square&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/carlosNahuelSanchez)
 
-[Descripción General](#descripción-general) • [Arquitectura](#arquitectura) • [Puertos](#puertos) • [Inicio Rápido](#inicio-rápido) • [Comandos CLI](#comandos-cli) • [Integración MCP](#integración-mcp) • [Guía de Usuario](#guía-de-usuario) • [API](#referencia-api)
+[Descripción General](#descripción-general) • [Arquitectura](#arquitectura) • [Puertos](#puertos) • [Inicio Rápido](#inicio-rápido) • [Comandos CLI](#comandos-cli) • [Integración MCP](#integración-mcp) • [Guía de Usuario](#guía-de-usuario) • [Webhooks](#5-automatización-con-webhooks) • [API](#referencia-api) • [Apoyar](#apoyar-el-proyecto)
 
 </div>
 
@@ -194,6 +195,16 @@ Para conectar cualquier cliente compatible con MCP de forma manual:
 - Accede mediante el icono de gráfico en la cabecera (o `F3`).
 - Muestra el total de notas, carpetas, etiquetas, porcentaje de vectorización, latencia de base de datos y actividad reciente.
 
+### 5. Automatización con Webhooks
+NexoNotes incluye un despachador de **webhooks asíncronos y no bloqueantes** para enlazar eventos del sistema con plataformas externas de automatización (como **n8n**, **Make**, **Zapier**, bots de Discord/Slack o microservicios propios):
+- **Configuración:** Asigna la URL de tu endpoint en la variable `WEBHOOK_URL` del archivo `.env` (ej. `WEBHOOK_URL=https://tu-servidor.com/webhook`).
+- **Eventos emitidos (HTTP POST en formato JSON):**
+  - `note.created`: Notificación enviada al crear e indexar una nota (`{ "id": int, "title": str }`).
+  - `note.updated`: Notificación enviada al modificar el contenido o título de una nota (`{ "id": int, "title": str }`).
+  - `note.deleted`: Notificación enviada al eliminar una nota (`{ "id": int, "title": str }`).
+  - `folder.deleted`: Notificación enviada al eliminar una carpeta y sus notas asociadas (`{ "folder": str, "notes_deleted": int }`).
+- **Ejecución no bloqueante:** El backend emite cada evento en segundo plano con timestamp UTC ISO 8601, garantizando que tus operaciones y la UI no experimenten latencia.
+
 ---
 
 ## Referencia API
@@ -256,6 +267,20 @@ NexoNotes/
     ├── setup-mcp.bat     # Acceso directo para Windows
     └── setup-mcp.sh      # Acceso directo para Unix
 ```
+
+---
+
+## Apoyar el Proyecto
+
+Si NexoNotes te resulta útil y deseas apoyar su desarrollo y mantenimiento continuo, ¡puedes invitarme un café!
+
+<div align="center">
+
+<a href="https://www.buymeacoffee.com/carlosNahuelSanchez" target="_blank"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=carlosNahuelSanchez&button_colour=000000&font_colour=ffffff&font_family=Lato&outline_colour=ffffff&coffee_colour=FFDD00" alt="Buy Me A Coffee" /></a>
+
+<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="carlosNahuelSanchez" data-color="#000000" data-emoji="☕"  data-font="Lato" data-text="Buy me a coffee" data-outline-color="#ffffff" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
+
+</div>
 
 ---
 
