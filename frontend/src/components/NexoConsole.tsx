@@ -199,8 +199,8 @@ export const NexoConsole: React.FC = () => {
               <div className="flex items-center justify-between border-b border-nexo-850 pb-2 mb-2 text-[11px]">
                 <div className="flex items-center gap-2">
                   <span
-                    className={`font-bold px-1.5 py-0.5 ${
-                      isUser ? 'bg-nexo-300 text-black' : 'bg-nexo-800 text-nexo-100'
+                    className={`font-bold px-1.5 py-0.5 border border-nexo-700 ${
+                      isUser ? 'bg-nexo-800 text-white' : 'bg-nexo-800 text-nexo-accent'
                     }`}
                   >
                     {isUser ? t.userRole : t.nexoRole}
