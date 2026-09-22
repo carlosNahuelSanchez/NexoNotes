@@ -276,9 +276,7 @@ Si NexoNotes te resulta útil y deseas apoyar su desarrollo y mantenimiento cont
 
 <div align="center">
 
-<a href="https://www.buymeacoffee.com/carlosNahuelSanchez" target="_blank"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=carlosNahuelSanchez&button_colour=000000&font_colour=ffffff&font_family=Lato&outline_colour=ffffff&coffee_colour=FFDD00" alt="Buy Me A Coffee" /></a>
-
-<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="carlosNahuelSanchez" data-color="#000000" data-emoji="☕"  data-font="Lato" data-text="Buy me a coffee" data-outline-color="#ffffff" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
+<a href="https://www.buymeacoffee.com/carlosNahuelSanchez" target="_blank"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=carlosNahuelSanchez&button_colour=000000&font_colour=ffffff&font_family=Lato&outline_colour=ffffff&coffee_colour=FFDD00" alt="Buy Me A Coffee ☕" /></a>
 
 </div>
 
