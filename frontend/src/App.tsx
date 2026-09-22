@@ -97,7 +97,7 @@ export function App() {
           <span className="text-nexo-700">│</span>
           <span>{t.madeBy}</span>
           <a
-            href="https://www.instagram.com/nexus.studio.dev/"
+            href="https://nexus-studio-dev.netlify.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-nexo-accent font-bold hover:text-emerald-300 hover:underline transition-all duration-200 tracking-wider"
